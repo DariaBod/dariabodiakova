@@ -1,62 +1,157 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #87CEEB; /* Небесно-голубой фон */
+    background-color: #def4ff; /* Небесно-голубой фон */
     color: #000000; /* Черный текст */
     line-height: 1.6;
+    scroll-behavior: smooth;
 }
 
-header {
-    background-color: #C41E3A; /* Вишневый красный */
-    color: #FFFFFF; /* Белый текст */
+.hero {
+    background-color: #e76143; /* Вишневый херо */
+    color: #ffffff;
     text-align: center;
-    padding: 2em 0;
+    padding: 6em 1em;
+    position: relative;
 }
 
-h1, h2 {
-    color: #C41E3A; /* Вишневый для заголовков */
-}
-
-section {
+.hero-content {
     max-width: 800px;
-    margin: 2em auto;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+h2 {
+    color: #e76143; /* Акцент для h2 */
+    text-align: center;
+}
+
+nav {
+    background-color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    list-style: none;
     padding: 1em;
-    background-color: #FFFFFF; /* Белый фон для секций */
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-ul {
-    list-style-type: disc;
-    padding-left: 20px;
+nav li {
+    margin: 0.5em 1em;
 }
 
-.download-btn {
-    display: inline-block;
-    background-color: #C41E3A; /* Вишневый для кнопки */
-    color: #FFFFFF;
-    padding: 0.5em 1em;
+nav a {
     text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
+    color: #000000;
+    font-weight: 600;
+    transition: color 0.3s;
 }
 
-.download-btn:hover {
-    background-color: #808080; /* Серый на hover */
+nav a:hover {
+    color: #e76143;
+}
+
+.section {
+    max-width: 1200px;
+    margin: 4em auto;
+    padding: 2em;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2em;
+}
+
+.card {
+    background-color: #def4ff;
+    padding: 1.5em;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+}
+
+.skill-chip {
+    background-color: #e76143;
+    color: #ffffff;
+    padding: 0.5em 1em;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: transform 0.3s;
+}
+
+.skill-chip:hover {
+    transform: scale(1.1);
+}
+
+.btn {
+    display: inline-block;
+    background-color: #e76143;
+    color: #ffffff;
+    padding: 0.8em 1.5em;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    margin: 1em 0.5em;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #000000;
+    transform: translateY(-3px);
 }
 
 footer {
+    background-color: #e76143;
+    color: #ffffff;
     text-align: center;
     padding: 1em;
-    background-color: #C41E3A;
-    color: #FFFFFF;
+    margin-top: 4em;
 }
 
-/* Responsive дизайн */
-@media (max-width: 600px) {
-    section {
-        margin: 1em;
-        padding: 0.5em;
-    }
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero { padding: 4em 1em; }
+    h1 { font-size: 2.5em; }
+    .section { padding: 1em; margin: 2em 1em; }
 }
