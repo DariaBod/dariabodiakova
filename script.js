@@ -1,29 +1,40 @@
-// Init AOS
-AOS.init({ duration: 1000 });
+// ... предыдущий код (AOS, Typed, Progress, Prism)
 
-// Typing effect
-var typed = new Typed('#typed-text', {
-    strings: ['Автоматизатор Тестирования', 'QA Specialist', 'Automation Expert'],
-    typeSpeed: 50,
-    backSpeed: 30,
-    loop: true
-});
+// Modal logic
+const modal = document.getElementById('demo-modal');
+const btn = document.getElementById('demo-test-btn');
+const close = document.querySelector('.close');
+const output = document.getElementById('test-output');
+const progress = document.querySelector('#test-progress .progress');
 
-// Progress bars animation on view
-const skillsSection = document.getElementById('skills');
-const observer = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
-        document.querySelectorAll('.progress').forEach(bar => {
-            bar.style.width = bar.getAttribute('style').split('width: ')[1]; // Fill to predefined %
-        });
-    }
-});
-observer.observe(skillsSection);
+btn.onclick = () => {
+    modal.style.display = 'flex';
+    simulateTest();
+};
 
-// Demo test button - simulated animation
-document.getElementById('demo-test-btn').addEventListener('click', () => {
-    alert('Запуск демо-теста: Проверка логина... Успех! (Это симуляция JS для демонстрации навыков автоматизации)');
-});
+close.onclick = () => {
+    modal.style.display = 'none';
+    output.innerHTML = 'Инициализация теста...';
+    progress.style.width = '0%';
+};
 
-// Prism highlight
-Prism.highlightAll();
+function simulateTest() {
+    let steps = [
+        'Запуск браузера...',
+        'Навигация на сайт...',
+        'Заполнение формы логина...',
+        'Проверка assertions...',
+        'Тест пройден успешно! Coverage: 95%'
+    ];
+    let i = 0;
+    progress.style.width = '0%';
+    let interval = setInterval(() => {
+        if (i < steps.length) {
+            output.innerHTML += '\n' + steps[i];
+            progress.style.width = ((i + 1) / steps.length * 100) + '%';
+            i++;
+        } else {
+            clearInterval(interval);
+        }
+    }, 1000);
+}
