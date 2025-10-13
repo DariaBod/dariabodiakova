@@ -6,14 +6,17 @@
     <title>Ваша Визитка - Автоматизатор Тестирования</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"> <!-- AOS for animations -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet"> <!-- Prism for code -->
 </head>
 <body>
-<header class="hero">
+<header class="hero parallax">
     <div class="hero-content">
         <h1>Ваше Имя</h1>
-        <p>Автоматизатор Тестирования | Специалист по QA Automation</p>
+        <p id="typed-text"></p> <!-- Typing effect here -->
         <a href="#about" class="btn">Узнать больше</a>
         <a href="resume.pdf" download class="btn">Скачать резюме</a>
+        <button id="demo-test-btn" class="btn">Запустить демо-тест</button> <!-- Simulated test demo -->
     </div>
 </header>
 
@@ -23,91 +26,101 @@
         <li><a href="#experience">Опыт</a></li>
         <li><a href="#skills">Навыки</a></li>
         <li><a href="#projects">Проекты</a></li>
-        <li><a href="#education">Образование и Сертификаты</a></li>
+        <li><a href="#education">Образование</a></li>
         <li><a href="#contacts">Контакты</a></li>
     </ul>
 </nav>
 
-<section id="about" class="section fade-in">
+<section id="about" class="section" data-aos="fade-up">
     <h2>Обо мне</h2>
     <p>Я автоматизатор тестирования с опытом в создании фреймворков для UI/API тестов. Специализируюсь на инструментах вроде Cypress, Selenium и Playwright. Люблю оптимизировать процессы и обеспечивать качество ПО.</p>
 </section>
 
-<section id="experience" class="section fade-in">
+<section id="experience" class="section" data-aos="zoom-in">
     <h2>Опыт работы</h2>
     <div class="card-grid">
-        <div class="card">
-            <h3>Компания X (2022 - настоящее время)</h3>
-            <p>Автоматизатор QA: Разработка e2e-тестов в Cypress, интеграция с CI/CD, менторство команды.</p>
+        <div class="card flip-card" data-aos="flip-left">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h3>Компания X (2022 - настоящее время)</h3>
+                </div>
+                <div class="flip-card-back">
+                    <p>Автоматизатор QA: Разработка e2e-тестов в Cypress, интеграция с CI/CD, менторство команды.</p>
+                </div>
+            </div>
         </div>
-        <div class="card">
-            <h3>Компания Y (2020 - 2022)</h3>
-            <p>Junior QA Engineer: Мануальное и автоматизированное тестирование, API-тесты в Postman.</p>
+        <div class="card flip-card" data-aos="flip-right">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h3>Компания Y (2020 - 2022)</h3>
+                </div>
+                <div class="flip-card-back">
+                    <p>Junior QA Engineer: Мануальное и автоматизированное тестирование, API-тесты в Postman.</p>
+                </div>
+            </div>
         </div>
-        <!-- Добавьте больше карточек по мере необходимости -->
+        <!-- Добавьте больше -->
     </div>
 </section>
 
-<section id="skills" class="section fade-in">
+<section id="skills" class="section" data-aos="fade-right">
     <h2>Навыки</h2>
-    <div class="skills-grid">
-        <div class="skill-chip">Cypress</div>
-        <div class="skill-chip">Selenium</div>
-        <div class="skill-chip">Playwright</div>
-        <div class="skill-chip">Postman</div>
-        <div class="skill-chip">Git</div>
-        <div class="skill-chip">SQL</div>
-        <div class="skill-chip">JavaScript / TypeScript</div>
-        <div class="skill-chip">Python</div>
-        <div class="skill-chip">Jenkins / CI/CD</div>
-        <!-- Добавьте иконки, если хотите: <img src="icons/cypress.svg" alt="Cypress"> -->
+    <div class="skills-container">
+        <div class="skill">
+            <span>Cypress</span>
+            <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+        </div>
+        <div class="skill">
+            <span>Selenium</span>
+            <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+        </div>
+        <div class="skill">
+            <span>Playwright</span>
+            <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+        </div>
+        <!-- Добавьте больше, настройте width % по вашим навыкам -->
     </div>
 </section>
 
-<section id="projects" class="section fade-in">
+<section id="projects" class="section" data-aos="fade-left">
     <h2>Проекты</h2>
     <div class="card-grid">
-        <div class="card">
+        <div class="card" data-aos="zoom-in-up">
             <h3>Автоматизация UI для E-commerce</h3>
-            <p>Фреймворк на Selenium для тестирования Opencart: логин, корзина, checkout. Демонстрирует обработку элементов, waits и отчеты.</p>
+            <p>Фреймворк на Selenium. Пример кода:</p>
+            <pre><code class="language-javascript">// Example Selenium test
+driver.get("https://example.com");
+driver.findElement(By.id("login")).sendKeys("user");
+assertTrue(driver.getTitle().contains("Dashboard"));</code></pre>
             <a href="https://github.com/yourusername/project1" target="_blank" class="btn">GitHub</a>
         </div>
-        <div class="card">
-            <h3>API Тестирование</h3>
-            <p>Скрипты в Postman для Restful Booker: CRUD операции, assertions. Интеграция с Newman для CI.</p>
-            <a href="https://github.com/yourusername/project2" target="_blank" class="btn">GitHub</a>
-        </div>
-        <div class="card">
-            <h3>E2E Тесты в Cypress</h3>
-            <p>Автоматизация веб-приложения: fixtures, custom commands, видео-запись тестов.</p>
-            <a href="https://github.com/yourusername/project3" target="_blank" class="btn">GitHub</a>
-        </div>
-        <!-- Добавьте больше проектов из идей: RPA, Mobile, Performance -->
+        <!-- Добавьте больше с code snippets -->
     </div>
 </section>
 
-<section id="education" class="section fade-in">
+<section id="education" class="section" data-aos="fade-up">
     <h2>Образование и Сертификаты</h2>
     <ul>
         <li>Высшее образование: [Ваш вуз, специальность, год]</li>
         <li>ISTQB Certified Tester Foundation Level</li>
-        <li>Selenium WebDriver Certification</li>
-        <!-- Добавьте реальные -->
+        <!-- Добавьте -->
     </ul>
 </section>
 
-<section id="contacts" class="section fade-in">
+<section id="contacts" class="section" data-aos="zoom-in">
     <h2>Контакты</h2>
     <p>Email: your.email@example.com</p>
     <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile">yourprofile</a></p>
-    <p>GitHub: <a href="https://github.com/yourusername">yourusername</a></p>
-    <p>Telegram: @yourhandle</p>
+    <!-- Добавьте -->
 </section>
 
 <footer>
     <p>&copy; 2025 Ваше Имя. Все права защищены.</p>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script> <!-- Typed.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
