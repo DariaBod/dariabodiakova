@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #87CEEB; /* Небесно-голубой фон */
+    color: #000000; /* Черный текст */
+    line-height: 1.6;
+}
+
+header {
+    background-color: #C41E3A; /* Вишневый красный */
+    color: #FFFFFF; /* Белый текст */
+    text-align: center;
+    padding: 2em 0;
+}
+
+h1, h2 {
+    color: #C41E3A; /* Вишневый для заголовков */
+}
+
+section {
+    max-width: 800px;
+    margin: 2em auto;
+    padding: 1em;
+    background-color: #FFFFFF; /* Белый фон для секций */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.download-btn {
+    display: inline-block;
+    background-color: #C41E3A; /* Вишневый для кнопки */
+    color: #FFFFFF;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.download-btn:hover {
+    background-color: #808080; /* Серый на hover */
+}
+
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #C41E3A;
+    color: #FFFFFF;
+}
+
+/* Responsive дизайн */
+@media (max-width: 600px) {
+    section {
+        margin: 1em;
+        padding: 0.5em;
+    }
+}
