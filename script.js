@@ -1,40 +1,35 @@
-// ... предыдущий код (AOS, Typed, Progress, Prism)
+// Инициализация AOS для анимаций на скролле (fade, zoom и т.д.)
+AOS.init({
+    duration: 1000,  // Длительность анимации в мс
+    easing: 'ease-in-out',  // Тип easing
+    once: true  // Анимировать только один раз при скролле
+});
 
-// Modal logic
-const modal = document.getElementById('demo-modal');
-const btn = document.getElementById('demo-test-btn');
-const close = document.querySelector('.close');
-const output = document.getElementById('test-output');
-const progress = document.querySelector('#test-progress .progress');
+// Typing effect в hero (Typed.js)
+var typed = new Typed('#typed-text', {
+    strings: ['Автоматизатор Тестирования', 'QA Specialist', 'Automation Expert'],
+    typeSpeed: 50,  // Скорость печати
+    backSpeed: 30,  // Скорость стирания
+    loop: true  // Зациклить
+});
 
-btn.onclick = () => {
-    modal.style.display = 'flex';
-    simulateTest();
-};
+// Анимация progress bars в секции навыков (заполнение при появлении на экране)
+const skillsSection = document.getElementById('skills');
+const progressObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+        document.querySelectorAll('.progress').forEach(bar => {
+            // Получаем целевую ширину из inline-style (например, width: 90%) и анимируем
+            const targetWidth = bar.style.width;
+            bar.style.width = '0';  // Сброс для анимации
+            setTimeout(() => {
+                bar.style.width = targetWidth;
+            }, 100);  // Небольшая задержка для плавности
+        });
+        progressObserver.unobserve(skillsSection);  // Отписаться после первой анимации
+    }
+}, { threshold: 0.5 });  // Триггер когда 50% секции видно
 
-close.onclick = () => {
-    modal.style.display = 'none';
-    output.innerHTML = 'Инициализация теста...';
-    progress.style.width = '0%';
-};
+progressObserver.observe(skillsSection);
 
-function simulateTest() {
-    let steps = [
-        'Запуск браузера...',
-        'Навигация на сайт...',
-        'Заполнение формы логина...',
-        'Проверка assertions...',
-        'Тест пройден успешно! Coverage: 95%'
-    ];
-    let i = 0;
-    progress.style.width = '0%';
-    let interval = setInterval(() => {
-        if (i < steps.length) {
-            output.innerHTML += '\n' + steps[i];
-            progress.style.width = ((i + 1) / steps.length * 100) + '%';
-            i++;
-        } else {
-            clearInterval(interval);
-        }
-    }, 1000);
-}
+// Подсветка кода в проектах (Prism.js)
+Prism.highlightAll();

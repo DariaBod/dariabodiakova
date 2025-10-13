@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ваша Визитка - Автоматизатор Тестирования</title>
     <link rel="stylesheet" href="styles.css">
@@ -16,14 +16,13 @@
         <p id="typed-text"></p>
         <a href="#about" class="btn">Узнать больше</a>
         <a href="resume.pdf" download class="btn">Скачать резюме</a>
-        <button id="demo-test-btn" class="btn">Запустить демо-тест</button>
-    </div>
+        </inne>
 </header>
 
 <nav>
     <ul>
         <li><a href="#about">Обо мне</a></li>
-        <li><a href="#experience">Опыт</a></li>
+        <li><a href="#experience">Оп10</a></li>
         <li><a href="#skills">Навыки</a></li>
         <li><a href="#projects">Проекты</a></li>
         <li><a href="#education">Образование</a></li>
@@ -36,25 +35,69 @@
     <p>Я автоматизатор тестирования с опытом в создании фреймворков для UI/API тестов. Специализируюсь на инструментах вроде Cypress, Selenium и Playwright. Люблю оптимизировать процессы и обеспечивать качество ПО.</p>
 </section>
 
-<!-- Остальные sections как раньше, без изменений для краткости -->
-
-<!-- Modal for demo test -->
-<div id="demo-modal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h3>Симуляция запуска теста</h3>
-        <div id="test-progress" class="progress-bar"><div class="progress"></div></div>
-        <pre id="test-output" class="console">Инициализация теста...</pre>
+<section id="experience" class="section" data-aos="zoom-in">
+    <h2>Опыт работы</h2>
+    <div class="card-grid">
+        <div class="card flip-card" data-aos="flip-left">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h3>Компания X (2022 - настоящее время)</h3>
+                </div>
+                <div class="flip-card-back">
+                    <p>Автоматизатор QA: Разработка e2e-тестов в Cypress, интеграция с CI/CD, менторство команды.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card flip-card" data-aos="flip-right">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h3>Компания Y (2020 - 2022)</h3>
+                </div>
+                <div class="flip-card-back">
+                    <p>Junior QA Engineer: Мануальное и автоматизированное тестирование, API-тесты в Postman.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Добавьте больше -->
     </div>
-</div>
+</section>
 
-<footer>
-    <p>&copy; 2025 Ваше Имя. Все права защищены.</p>
-</footer>
+<section id="skills" class="section" data-aos="fade-right">
+    <h2>Навыки</h2>
+    <div class="skills-container">
+        <div class="skill">
+            <span>Cypress</span>
+            <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+        </div>
+        <div class="skill">
+            <span>Selenium</span>
+            <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+        </div>
+        <div class="skill">
+            <span>Playwright</span>
+            <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+        </div>
+        <!-- Добавьте больше -->
+    </div>
+</section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-<script src="script.js"></script>
-</body>
-</html>
+<section id="projects" class="section" data-aos="fade-left">
+    <h2>Проекты</h2>
+    <div class="card-grid">
+        <div class="card" data-aos="zoom-in-up">
+            <h3>Автоматизация UI для E-commerce</h3>
+            <p>Фреймворк на Selenium. Пример кода:</p>
+            <pre><code class="language-javascript">// Example Selenium test
+driver.get("https://example.com");
+driver.findElement(By.id("login")).sendKeys("user");
+assertTrue(driver.getTitle().contains("Dashboard"));</code></pre>
+            <a href="https://github.com/yourusername/project1" target="_blank" class="btn">GitHub</a>
+        </div>
+        <!-- Добавьте больше -->
+    </div>
+</section>
+
+<section id="education" class="section" data-aos="fade-up">
+    <h2>Образование и Сертификаты</h2>
+    <ul>
+        <li>Высшее образование

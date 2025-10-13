@@ -1,30 +1,64 @@
+/* Global styles */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #def4ff, #ffffff); /* Градиент фон */
+    background: linear-gradient(to bottom, #def4ff, #ffffff); /* Градиент фон для глубины */
     color: #000000;
     line-height: 1.6;
     scroll-behavior: smooth;
 }
 
+h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+h2 {
+    color: #6f262f;
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+h3 {
+    color: #6f262f;
+    margin-bottom: 0.5em;
+}
+
+/* Hero section with gradient and parallax */
 .hero {
-    background: linear-gradient(to bottom, #6f262f, #4a1a20); /* Градиент для hero */
+    background: linear-gradient(to bottom, #6f262f, #4a1a20); /* Градиент вишневый */
     color: #ffffff;
     text-align: center;
     padding: 10em 1em 6em;
-    background-attachment: fixed;
+    background-attachment: fixed; /* Parallax effect */
     background-position: center;
     background-size: cover;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Navigation with underline animation */
+nav {
+    background-color: rgba(255, 255, 255, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 nav ul {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
     list-style: none;
     padding: 1em;
     margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 nav li {
@@ -47,7 +81,7 @@ nav a::after {
     bottom: -5px;
     left: 0;
     background-color: #6f262f;
-    transition: width 0.3s;
+    transition: width 0.3s ease;
 }
 
 nav a:hover::after {
@@ -59,6 +93,7 @@ nav a:hover {
     transform: scale(1.05);
 }
 
+/* General sections */
 .section {
     max-width: 1200px;
     margin: 4em auto;
@@ -66,16 +101,136 @@ nav a:hover {
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    border: 1px solid transparent; /* Для градиент бордера */
-    border-image: linear-gradient(to right, #def4ff, #6f262f) 1;
+    border: 1px solid transparent;
+    border-image: linear-gradient(to right, #def4ff, #6f262f) 1; /* Градиент бордер */
+}
+
+/* Card grid and cards */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2em;
 }
 
 .card {
     background: linear-gradient(to bottom, #ffffff, #def4ff); /* Лёгкий градиент в карточках */
-    /* ... остальное как раньше */
+    padding: 1.5em;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Modal styles */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+}
+
+/* Flip cards for experience */
+.flip-card {
+    perspective: 1000px;
+    height: 200px; /* Fixed height for flip */
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1em;
+    border-radius: 8px;
+}
+
+.flip-card-front {
+    background-color: #def4ff;
+    color: #000000;
+}
+
+.flip-card-back {
+    background-color: #6f262f;
+    color: #ffffff;
+    transform: rotateY(180deg);
+}
+
+/* Skills with progress bars */
+.skills-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.skill {
+    margin: 1em 0;
+}
+
+.skill span {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+}
+
+.progress-bar {
+    background: #e0e0e0;
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress {
+    background: #6f262f;
+    height: 100%;
+    width: 0; /* Starts at 0, animates in JS */
+    transition: width 1s ease-in-out;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: #6f262f;
+    color: #ffffff;
+    padding: 0.8em 1.5em;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    margin: 1em 0.5em;
+    transition: background-color 0.3s, transform 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #000000;
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* Code snippets with Prism */
+pre {
+    margin: 1em 0;
+    overflow-x: auto;
+}
+
+pre code {
+    background: #2d2d2d;
+    color: #f8f8f2;
+    padding: 1em;
+    border-radius: 8px;
+    display: block;
+}
+
+/* Modal for demo test */
 .modal {
     display: none;
     position: fixed;
@@ -87,6 +242,7 @@ nav a:hover {
     background-color: rgba(0,0,0,0.5);
     justify-content: center;
     align-items: center;
+    animation: fadeIn 0.3s ease;
 }
 
 .modal-content {
@@ -96,6 +252,8 @@ nav a:hover {
     width: 80%;
     max-width: 500px;
     text-align: center;
+    position: relative;
+    animation: zoomIn 0.3s ease;
 }
 
 .close {
@@ -104,16 +262,76 @@ nav a:hover {
     right: 20px;
     font-size: 2em;
     cursor: pointer;
+    color: #6f262f;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: #000000;
 }
 
 .console {
     background: #2d2d2d;
-    color: #ffffff;
+    color: #00ff00; /* Green for console text */
     padding: 1em;
     border-radius: 8px;
     text-align: left;
     height: 150px;
     overflow-y: auto;
+    margin-top: 1em;
+    font-family: monospace;
 }
 
-/* ... остальное CSS как в предыдущей версии */
+/* Footer */
+footer {
+    background-color: #6f262f;
+    color: #ffffff;
+    text-align: center;
+    padding: 1em;
+    margin-top: 4em;
+}
+
+/* Animations keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.5); }
+    to { transform: scale(1); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero {
+        padding: 6em 1em 4em;
+    }
+    h1 {
+        font-size: 2.5em;
+    }
+    nav ul {
+        flex-direction: column;
+    }
+    nav li {
+        margin: 0.5em 0;
+    }
+    .section {
+        padding: 1em;
+        margin: 2em 1em;
+    }
+    .flip-card {
+        height: auto;
+    }
+    .modal-content {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        display: block;
+        width: 100%;
+        margin: 0.5em 0;
+    }
+}
