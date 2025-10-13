@@ -4,12 +4,12 @@ body {
     padding: 0;
     background-color: #def4ff; /* Небесно-голубой фон */
     color: #000000; /* Черный текст */
-    line-height: 1.6;
+    line-height:  Motors 1.6;
     scroll-behavior: smooth;
 }
 
 .hero {
-    background-color: #e76143; /* Вишневый херо */
+    background-color: #6f262f; /* Вишневый херо */
     color: #ffffff;
     text-align: center;
     padding: 6em 1em;
@@ -27,7 +27,7 @@ h1 {
 }
 
 h2 {
-    color: #e76143; /* Акцент для h2 */
+    color: #6f262f; /* Вишневый акцент для h2 */
     text-align: center;
 }
 
@@ -60,7 +60,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #e76143;
+    color: #6f262f;
 }
 
 .section {
@@ -69,7 +69,7 @@ nav a:hover {
     padding: 2em;
     background-color: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    opa box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -106,7 +106,7 @@ nav a:hover {
 }
 
 .skill-chip {
-    background-color: #e76143;
+    background-color: #6f262f;
     color: #ffffff;
     padding: 0.5em 1em;
     border-radius: 20px;
@@ -120,7 +120,7 @@ nav a:hover {
 
 .btn {
     display: inline-block;
-    background-color: #e76143;
+    background-color: #6f262f;
     color: #ffffff;
     padding: 0.8em 1.5em;
     text-decoration: none;
@@ -136,7 +136,7 @@ nav a:hover {
 }
 
 footer {
-    background-color: #e76143;
+    background-color: #6f262f;
     color: #ffffff;
     text-align: center;
     padding: 1em;
