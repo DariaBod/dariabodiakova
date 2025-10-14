@@ -63,7 +63,6 @@ h2 {
     text-align: center;
 }
 
-/* СЕКЦИИ С ЛЕГКИМИ HOVER ЭФФЕКТАМИ */
 .section {
     max-width: 1200px;
     margin: 4em auto;
@@ -75,8 +74,8 @@ h2 {
 }
 
 .section:hover {
-    transform: translateY(-3px); /* Легкий подъем без scale */
-    box-shadow: 0 8px 30px rgba(0,0,0,0.15); /* Мягкая тень */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
 }
 
 .card-grid {
@@ -93,11 +92,10 @@ h2 {
 }
 
 .card:hover {
-    transform: scale(1.02); /* Легкое увеличение */
+    transform: scale(1.02);
     box-shadow: 0 6px 25px rgba(0,0,0,0.15);
 }
 
-/* КАРТОЧКИ ОПЫТА С БЫСТРОЙ АНИМАЦИЕЙ */
 .experience-card {
     position: relative;
     border-radius: 8px;
@@ -120,7 +118,7 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.3s ease; /* УСКОРЕННАЯ АНИМАЦИЯ 0.3s */
+    transition: opacity 0.3s ease;
     padding: 1.5em;
     box-sizing: border-box;
     min-height: 180px;
@@ -178,7 +176,7 @@ h2 {
 }
 
 .skill-chip:hover {
-    transform: scale(1.05); /* Легкое увеличение */
+    transform: scale(1.05);
 }
 
 .btn {
@@ -206,50 +204,59 @@ pre code {
     overflow-x: auto;
 }
 
-.contact-intro {
-    text-align: center;
-    margin-bottom: 2em;
-    font-style: italic;
-    color: #666;
+/* ФУТЕР С КОНТАКТАМИ */
+.footer {
+    background: linear-gradient(135deg, #6f262f, #4a1a20);
+    color: #ffffff;
+    padding: 3em 1em 2em;
+    margin-top: 4em;
 }
 
-.contact-intro p {
-    margin: 0;
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-text {
+    font-style: italic;
+    margin: 0 0 2em 0;
     font-size: 1.1em;
+    opacity: 0.9;
 }
 
 .contact-icons {
     display: flex;
     justify-content: center;
     gap: 2em;
-    margin-top: 1em;
+    margin: 2em 0;
+    flex-wrap: wrap;
 }
 
 .contact-link {
-    color: #6f262f;
-    font-size: 2em;
+    color: #ffffff;
+    font-size: 1.8em;
     transition: color 0.3s, transform 0.3s;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    background-color: #def4ff;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .contact-link:hover {
-    color: #ffffff;
-    background-color: #6f262f;
-    transform: scale(1.05);
+    color: #6f262f;
+    background: #ffffff;
+    transform: scale(1.1);
 }
 
-footer {
-    background-color: #6f262f;
-    color: #ffffff;
-    text-align: center;
-    padding: 1em;
-    margin-top: 4em;
+.copyright {
+    margin-top: 2em;
+    opacity: 0.8;
+    font-size: 0.9em;
 }
 
 /* Responsive */
@@ -270,9 +277,12 @@ footer {
     .experience-card {
         min-height: 160px;
     }
-    .experience-card .card-front,
-    .experience-card .card-back {
-        min-height: 160px;
-        padding: 1em;
+    .contact-icons {
+        gap: 1.5em;
+    }
+    .contact-link {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5em;
     }
 }
