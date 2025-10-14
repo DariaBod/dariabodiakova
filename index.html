@@ -5,117 +5,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ваша Визитка - Автоматизатор Тестирования</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 <header class="hero">
     <div class="hero-content">
-        <div class="hero-avatar">
-            <img src="sources/photo.jpg" alt="Ваше фото" class="avatar">
-        </div>
         <div class="hero-text">
             <h1>Ваше Имя</h1>
-            <p>Автоматизатор Тестирования | Специалист QA Automation</p>
-            <a href="resume.pdf" download class="btn">Скачать резюме</a>
+            <p class="hero-subtitle">Автоматизатор Тестирования | Специалист QA Automation</p>
+            <p class="hero-description">Создаю надежные фреймворки для UI/API тестирования. Специализируюсь на Cypress, Selenium, Playwright.</p>
+            <a href="resume.pdf" download class="btn-primary">Скачать резюме</a>
         </div>
     </div>
 </header>
 
-<section id="about" class="section">
-    <h2>Обо мне</h2>
-    <p>Я автоматизатор тестирования с опытом в создании фреймворков для UI/API тестов. Специализируюсь на инструментах вроде Cypress, Selenium и Playwright. Люблю оптимизировать процессы и обеспечивать качество ПО.</p>
-</section>
+<main class="content">
+    <section id="about" class="content-section">
+        <h2>Обо мне</h2>
+        <p>Я автоматизатор тестирования с опытом в создании фреймворков для UI/API тестов. Специализируюсь на инструментах вроде Cypress, Selenium и Playwright. Люблю оптимизировать процессы и обеспечивать качество ПО на всех этапах разработки.</p>
+    </section>
 
-<section id="experience" class="section">
-    <h2>Опыт работы</h2>
-    <div class="card-grid">
-        <div class="card experience-card">
-            <div class="card-front">
-                <h3>Компания X (2022 - настоящее время)</h3>
+    <section id="experience" class="content-section">
+        <h2>Опыт работы</h2>
+        <div class="experience-list">
+            <div class="experience-item">
+                <h3>Компания X <span class="experience-date">(2022 - настоящее время)</span></h3>
+                <p>Автоматизатор QA: Разработка e2e-тестов в Cypress, интеграция с CI/CD, менторство команды тестирования.</p>
             </div>
-            <div class="card-back">
-                <p>Автоматизатор QA: Разработка e2e-тестов в Cypress, интеграция с CI/CD, менторство команды.</p>
+            <div class="experience-item">
+                <h3>Компания Y <span class="experience-date">(2020 - 2022)</span></h3>
+                <p>Junior QA Engineer: Мануальное и автоматизированное тестирование, API-тесты в Postman, написание тест-кейсов.</p>
             </div>
         </div>
-        <div class="card experience-card">
-            <div class="card-front">
-                <h3>Компания Y (2020 - 2022)</h3>
-            </div>
-            <div class="card-back">
-                <p>Junior QA Engineer: Мануальное и автоматизированное тестирование, API-тесты в Postman.</p>
-            </div>
+    </section>
+
+    <section id="skills" class="content-section">
+        <h2>Навыки</h2>
+        <div class="skills-list">
+            <span class="skill-tag">Cypress</span>
+            <span class="skill-tag">Selenium</span>
+            <span class="skill-tag">Playwright</span>
+            <span class="skill-tag">Postman</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">JavaScript / TypeScript</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Jenkins / CI/CD</span>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="skills" class="section">
-    <h2>Навыки</h2>
-    <div class="skills-grid">
-        <div class="skill-chip">Cypress</div>
-        <div class="skill-chip">Selenium</div>
-        <div class="skill-chip">Playwright</div>
-        <div class="skill-chip">Postman</div>
-        <div class="skill-chip">Git</div>
-        <div class="skill-chip">SQL</div>
-        <div class="skill-chip">JavaScript / TypeScript</div>
-        <div class="skill-chip">Python</div>
-        <div class="skill-chip">Jenkins / CI/CD</div>
-    </div>
-</section>
-
-<section id="projects" class="section">
-    <h2>Проекты</h2>
-    <div class="card-grid">
-        <div class="card">
-            <h3>Автоматизация UI для E-commerce</h3>
-            <p>Фреймворк на Selenium для тестирования Opencart: логин, корзина, checkout. Демонстрирует обработку элементов, waits и отчеты.</p>
-            <pre><code class="language-javascript">// Example Selenium test
+    <section id="projects" class="content-section">
+        <h2>Проекты</h2>
+        <div class="projects-list">
+            <div class="project-item">
+                <h3>Автоматизация UI для E-commerce</h3>
+                <p>Фреймворк на Selenium для тестирования Opencart: логин, корзина, checkout. Демонстрирует обработку элементов, waits и отчеты.</p>
+                <pre><code class="language-javascript">// Example Selenium test
 driver.get("https://example.com");
 driver.findElement(By.id("login")).sendKeys("user");
 assertTrue(driver.getTitle().contains("Dashboard"));</code></pre>
-            <a href="https://github.com/yourusername/project1" target="_blank" class="btn">GitHub</a>
-        </div>
-        <div class="card">
-            <h3>API Тестирование</h3>
-            <p>Скрипты в Postman для Restful Booker: CRUD операции, assertions. Интеграция с Newman для CI.</p>
-            <pre><code class="language-javascript">// Example Postman script
+                <a href="https://github.com/yourusername/project1" target="_blank" class="btn-secondary">GitHub</a>
+            </div>
+            <div class="project-item">
+                <h3>API Тестирование</h3>
+                <p>Скрипты в Postman для Restful Booker: CRUD операции, assertions. Интеграция с Newman для CI.</p>
+                <pre><code class="language-javascript">// Example Postman script
 pm.test("Status code is 200", function () {
     pm.response.to.have.status(200);
 });</code></pre>
-            <a href="https://github.com/yourusername/project2" target="_blank" class="btn">GitHub</a>
-        </div>
-        <div class="card">
-            <h3>E2E Тесты в Cypress</h3>
-            <p>Автоматизация веб-приложения: fixtures, custom commands, видео-запись тестов.</p>
-            <pre><code class="language-javascript">// Example Cypress test
+                <a href="https://github.com/yourusername/project2" target="_blank" class="btn-secondary">GitHub</a>
+            </div>
+            <div class="project-item">
+                <h3>E2E Тесты в Cypress</h3>
+                <p>Автоматизация веб-приложения: fixtures, custom commands, видео-запись тестов.</p>
+                <pre><code class="language-javascript">// Example Cypress test
 cy.visit('/login');
 cy.get('#username').type('user');
 cy.get('#password').type('pass');
 cy.get('button').click();</code></pre>
-            <a href="https://github.com/yourusername/project3" target="_blank" class="btn">GitHub</a>
+                <a href="https://github.com/yourusername/project3" target="_blank" class="btn-secondary">GitHub</a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="education" class="section">
-    <h2>Образование и Сертификаты</h2>
-    <div class="card-grid">
-        <div class="card">
-            <h3>Высшее образование</h3>
-            <p>[Ваш вуз, специальность, год]</p>
+    <section id="education" class="content-section">
+        <h2>Образование и Сертификаты</h2>
+        <div class="education-list">
+            <div class="education-item">
+                <h3>Высшее образование</h3>
+                <p>[Ваш вуз, специальность, год]</p>
+            </div>
+            <div class="education-item">
+                <h3>ISTQB Certified Tester Foundation Level</h3>
+                <p>[Описание или год получения]</p>
+            </div>
+            <div class="education-item">
+                <h3>Selenium WebDriver Certification</h3>
+                <p>[Описание или год получения]</p>
+            </div>
         </div>
-        <div class="card">
-            <h3>ISTQB Certified Tester Foundation Level</h3>
-            <p>[Описание или год получения]</p>
-        </div>
-        <div class="card">
-            <h3>Selenium WebDriver Certification</h3>
-            <p>[Описание или год получения]</p>
-        </div>
-    </div>
-</section>
+    </section>
+</main>
 
 <footer class="footer">
     <div class="footer-content">
