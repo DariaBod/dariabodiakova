@@ -2,29 +2,50 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #def4ff, #ffffff); /* Градиент фон */
+    background: linear-gradient(to bottom, #def4ff, #ffffff);
     color: #000000;
     line-height: 1.6;
     scroll-behavior: smooth;
 }
 
+/* Hero с аватаром */
 .hero {
-    background: linear-gradient(to bottom, #6f262f, #4a1a20); /* Градиент вишневый */
+    background: linear-gradient(to bottom, #6f262f, #4a1a20);
     color: #ffffff;
     text-align: center;
-    padding: 10em 1em 6em;
-    background-position: center;
-    background-size: cover;
+    padding: 6em 1em 4em; /* Уменьшил padding для баланса с фото */
 }
 
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-avatar {
+    margin-bottom: 1.5em;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Круглое фото */
+    object-fit: cover; /* Сохраняет пропорции, обрезает по краям */
+    border: 4px solid #ffffff; /* Белая рамка */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3); /* Тень */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avatar:hover {
+    transform: scale(1.1); /* Плавное увеличение на hover */
+    box-shadow: 0 12px 35px rgba(0,0,0,0.4);
 }
 
 h1 {
     font-size: 3em;
-    margin: 0;
+    margin: 0.5em 0 0.2em 0; /* Уменьшил отступы */
 }
 
 h2 {
@@ -32,6 +53,7 @@ h2 {
     text-align: center;
 }
 
+/* Остальные стили без изменений */
 nav {
     background-color: #ffffff;
     position: sticky;
@@ -49,9 +71,7 @@ nav ul {
     flex-wrap: wrap;
 }
 
-nav li {
-    margin: 0.5em 1em;
-}
+nav li { margin: 0.5em 1em; }
 
 nav a {
     text-decoration: none;
@@ -60,9 +80,7 @@ nav a {
     transition: color 0.3s;
 }
 
-nav a:hover {
-    color: #6f262f;
-}
+nav a:hover { color: #6f262f; }
 
 .section {
     max-width: 1200px;
@@ -88,14 +106,9 @@ nav a:hover {
     transition: box-shadow 0.3s;
 }
 
-.card:hover {
-    box-shadow: 0 6px 25px rgba(0,0,0,0.15);
-}
+.card:hover { box-shadow: 0 6px 25px rgba(0,0,0,0.15); }
 
-.card-front {
-    z-index: 2;
-    position: relative;
-}
+.card-front { z-index: 2; position: relative; }
 
 .card-back {
     position: absolute;
@@ -103,20 +116,18 @@ nav a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(111, 38, 47, 0.9); /* Вишневый с прозрачностью */
+    background-color: rgba(111, 38, 47, 0.9);
     color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.5s ease; /* Плавный переход */
+    transition: opacity 0.5s ease;
     padding: 1em;
     box-sizing: border-box;
 }
 
-.card:hover .card-back {
-    opacity: 1;
-}
+.card:hover .card-back { opacity: 1; }
 
 .skills-grid {
     display: flex;
@@ -134,9 +145,7 @@ nav a:hover {
     transition: transform 0.3s;
 }
 
-.skill-chip:hover {
-    transform: scale(1.1);
-}
+.skill-chip:hover { transform: scale(1.1); }
 
 .btn {
     display: inline-block;
@@ -171,8 +180,12 @@ footer {
     margin-top: 4em;
 }
 
-/* Responsive */
+/* Responsive для фото */
 @media (max-width: 768px) {
+    .avatar {
+        width: 120px;
+        height: 120px;
+    }
     .hero { padding: 4em 1em; }
     h1 { font-size: 2.5em; }
     .section { padding: 1em; margin: 2em 1em; }
