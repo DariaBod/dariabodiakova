@@ -10,10 +10,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet">
 </head>
 <body>
-<header class="hero parallax">
+<header class="hero">
     <div class="hero-content">
         <h1>Ваше Имя</h1>
-        <p id="typed-text"></p>
+        <p>Автоматизатор Тестирования | Специалист QA Automation</p>
         <a href="#about" class="btn">Узнать больше</a>
         <a href="resume.pdf" download class="btn">Скачать резюме</a>
     </div>
@@ -22,7 +22,7 @@
 <nav>
     <ul>
         <li><a href="#about">Обо мне</a></li>
-        <li><a href="#experience">Опыт</a></li> <!-- Исправлено: было "Оп10" -->
+        <li><a href="#experience">Опыт</a></li>
         <li><a href="#skills">Навыки</a></li>
         <li><a href="#projects">Проекты</a></li>
         <li><a href="#education">Образование</a></li>
@@ -58,7 +58,6 @@
                 </div>
             </div>
         </div>
-        <!-- Добавьте больше карточек по мере необходимости -->
     </div>
 </section>
 
@@ -89,19 +88,6 @@
             <span>SQL</span>
             <div class="progress-bar"><div class="progress" style="width: 70%;"></div></div>
         </div>
-        <div class="skill">
-            <span>JavaScript / TypeScript</span>
-            <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
-        </div>
-        <div class="skill">
-            <span>Python</span>
-            <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
-        </div>
-        <div class="skill">
-            <span>Jenkins / CI/CD</span>
-            <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
-        </div>
-        <!-- Добавьте или скорректируйте навыки и проценты по вашим реальным уровням -->
     </div>
 </section>
 
@@ -109,33 +95,28 @@
     <h2>Проекты</h2>
     <div class="card-grid">
         <div class="card" data-aos="zoom-in-up">
-            <h3>Автоматизация UI для E-commerce</h3> Фреймворк на Selenium для тестирования Opencart: логин, корзина, checkout. Демонстрирует обработку элементов, waits и отчеты.</p>
-                <pre><code class="language-javascript">// Example Selenium test
-driver.get("https://example.com");
-driver.findElement(By.id("login")).sendKeys("user");
-assertTrue(driver.getTitle().contains("Dashboard"));</code></pre>
-                <a href="https://github.com/yourusername/project1" target="_blank" class="btn">GitHub</a>
+            <h3>Автоматизация UI для E-commerce</h3>
+            <p>Фреймворк на Selenium для тестирования Opencart</p>
+            <pre><code class="language-javascript">driver.get("https://example.com");
+driver.findElement(By.id("login")).sendKeys("user");</code></pre>
+            <a href="https://github.com/yourusername/project1" target="_blank" class="btn">GitHub</a>
         </div>
         <div class="card" data-aos="zoom-in-up">
             <h3>API Тестирование</h3>
-            <p>Скрипты в Postman для Restful Booker: CRUD операции, assertions. Интеграция с Newman для CI.</p>
-            <pre><code class="language-javascript">// Example Postman script
-pm.test("Status code is 200", function () {
+            <p>Скрипты в Postman для Restful Booker API</p>
+            <pre><code class="language-javascript">pm.test("Status code is 200", () => {
     pm.response.to.have.status(200);
 });</code></pre>
             <a href="https://github.com/yourusername/project2" target="_blank" class="btn">GitHub</a>
         </div>
         <div class="card" data-aos="zoom-in-up">
             <h3>E2E Тесты в Cypress</h3>
-            <p>Автоматизация веб-приложения: fixtures, custom commands, видео-запись тестов.</p>
-            <pre><code class="language-javascript">// Example Cypress test
-cy.visit('/login');
+            <p>Полная автоматизация веб-приложения</p>
+            <pre><code class="language-javascript">cy.visit('/login');
 cy.get('#username').type('user');
-cy.get('#password').type('pass');
 cy.get('button').click();</code></pre>
             <a href="https://github.com/yourusername/project3" target="_blank" class="btn">GitHub</a>
         </div>
-        <!-- Добавьте больше проектов с реальными ссылками и кодом -->
     </div>
 </section>
 
@@ -145,7 +126,6 @@ cy.get('button').click();</code></pre>
         <li>Высшее образование: [Ваш вуз, специальность, год]</li>
         <li>ISTQB Certified Tester Foundation Level</li>
         <li>Selenium WebDriver Certification</li>
-        <!-- Добавьте реальные сертификаты -->
     </ul>
 </section>
 
@@ -158,12 +138,11 @@ cy.get('button').click();</code></pre>
 </section>
 
 <footer>
-    <p>&copy; 2025 Ваше Имя. Все права защи: защищены.</p>
+    <p>&copy; 2025 Ваше Имя. Все права защищены.</p>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism specjal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

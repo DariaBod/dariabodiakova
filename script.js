@@ -1,44 +1,42 @@
-// Инициализация AOS для анимаций на скролле (fade, zoom и т.д.)
+// Инициализация AOS для анимаций
 AOS.init({
-    duration: 1000,  // Длительность анимации в мс
-    easing: 'ease-in-out',  // Тип easing
-    once: true  // Анимировать только один раз при скролле
+    duration: 1000,
+    easing: 'ease-in-out',
+    once: true
 });
 
-// Typing effect в hero (Typed.js)
-var typed = new Typed('#typed-text', {
-    strings: ['Автоматизатор Тестирования', 'QA Specialist', 'Automation Expert'],
-    typeSpeed: 50,  // Скорость печати
-    backSpeed: 30,  // Скорость стирания
-    loop: true  // Зациклить
-});
-
-// Анимация progress bars в секции навыков (заполнение при появлении на экране)
+// Анимация progress bars при скролле
 const skillsSection = document.getElementById('skills');
 const progressObserver = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
         document.querySelectorAll('.progress').forEach(bar => {
-            // Получаем целевую ширину из inline-style (например, width: 90%) и анимируем
             const targetWidth = bar.style.width;
-            bar.style.width = '0';  // Сброс для анимации
+            bar.style.width = '0';
             setTimeout(() => {
                 bar.style.width = targetWidth;
-            }, 100);  // Небольшая задержка для плавности
+            }, 100);
         });
-        progressObserver.unobserve(skillsSection);  // Отписаться после первой анимации
+        progressObserver.unobserve(skillsSection);
     }
-}, { threshold: 0.5 });  // Триггер когда 50% секции видно
+}, { threshold: 0.5 });
 
-progressObserver.observe(skillsSection);
+if (skillsSection) {
+    progressObserver.observe(skillsSection);
+}
 
-// Подсветка кода в проектах (Prism.js)
+// Подсветка кода
 Prism.highlightAll();
 
+// Smooth scroll для навигации
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
     });
 });
