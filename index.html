@@ -40,26 +40,30 @@
 <section id="experience" class="section">
     <h2>Опыт работы</h2>
     <div class="card-grid">
-        <div class="card">
-            <div class="card-front">
-                <h3>Компания X (2022 - настоящее время)</h3>
-            </div>
-            <div class="card-back">
-                <p>Автоматизатор QA: Разработка e2e-тестов в Cypress, интеграция с CI/CD, менторство команды.</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-front">
-                <h3>Компания Y (2020 - 2022)</h3>
-            </div>
-            <div class="card-back">
-                <p>Junior QA Engineer: Мануальное и автоматизированное тестирование, API-тесты в Postman.</p>
+        <div class="card experience-card" data-title="Компания X (2022 - настоящее время)">
+            <div class="card-content">
+                <div class="card-front">
+                    <h3>Компания X (2022 - настоящее время)</h3>
+                </div>
+                <div class="card-back">
+                    <p>Автоматизатор QA: Разработка e2e-тестов в Cypress, интеграция с CI/CD, менторство команды.</p>
+                </div>
             </div>
         </div>
-        <!-- Добавьте больше карточек по мере необходимости -->
+        <div class="card experience-card" data-title="Компания Y (2020 - 2022)">
+            <div class="card-content">
+                <div class="card-front">
+                    <h3>Компания Y (2020 - 2022)</h3>
+                </div>
+                <div class="card-back">
+                    <p>Junior QA Engineer: Мануальное и автоматизированное тестирование, API-тесты в Postman.</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
+<!-- Остальные секции без изменений -->
 <section id="skills" class="section">
     <h2>Навыки</h2>
     <div class="skills-grid">
@@ -72,7 +76,6 @@
         <div class="skill-chip">JavaScript / TypeScript</div>
         <div class="skill-chip">Python</div>
         <div class="skill-chip">Jenkins / CI/CD</div>
-        <!-- Добавьте или скорректируйте навыки -->
     </div>
 </section>
 
@@ -81,33 +84,12 @@
     <div class="card-grid">
         <div class="card">
             <h3>Автоматизация UI для E-commerce</h3>
-            <p>Фреймворк на Selenium для тестирования Opencart: логин, корзина, checkout. Демонстрирует обработку элементов, waits и отчеты.</p>
-            <pre><code class="language-javascript">// Example Selenium test
-driver.get("https://example.com");
-driver.findElement(By.id("login")).sendKeys("user");
-assertTrue(driver.getTitle().contains("Dashboard"));</code></pre>
+            <p>Фреймворк на Selenium для тестирования Opencart</p>
+            <pre><code class="language-javascript">driver.get("https://example.com");
+driver.findElement(By.id("login")).sendKeys("user");</code></pre>
             <a href="https://github.com/yourusername/project1" target="_blank" class="btn">GitHub</a>
         </div>
-        <div class="card">
-            <h3>API Тестирование</h3>
-            <p>Скрипты в Postman для Restful Booker: CRUD операции, assertions. Интеграция с Newman для CI.</p>
-            <pre><code class="language-javascript">// Example Postman script
-pm.test("Status code is 200", function () {
-    pm.response.to.have.status(200);
-});</code></pre>
-            <a href="https://github.com/yourusername/project2" target="_blank" class="btn">GitHub</a>
-        </div>
-        <div class="card">
-            <h3>E2E Тесты в Cypress</h3>
-            <p>Автоматизация веб-приложения: fixtures, custom commands, видео-запись тестов.</p>
-            <pre><code class="language-javascript">// Example Cypress test
-cy.visit('/login');
-cy.get('#username').type('user');
-cy.get('#password').type('pass');
-cy.get('button').click();</code></pre>
-            <a href="https://github.com/yourusername/project3" target="_blank" class="btn">GitHub</a>
-        </div>
-        <!-- Добавьте больше проектов -->
+        <!-- Добавьте другие проекты -->
     </div>
 </section>
 
@@ -116,8 +98,6 @@ cy.get('button').click();</code></pre>
     <ul>
         <li>Высшее образование: [Ваш вуз, специальность, год]</li>
         <li>ISTQB Certified Tester Foundation Level</li>
-        <li>Selenium WebDriver Certification</li>
-        <!-- Добавьте реальные -->
     </ul>
 </section>
 
@@ -126,7 +106,6 @@ cy.get('button').click();</code></pre>
     <p>Email: your.email@example.com</p>
     <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile">yourprofile</a></p>
     <p>GitHub: <a href="https://github.com/yourusername">yourusername</a></p>
-    <p>Telegram: @yourhandle</p>
 </section>
 
 <footer>

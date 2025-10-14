@@ -8,12 +8,11 @@ body {
     scroll-behavior: smooth;
 }
 
-/* Hero с аватаром */
 .hero {
     background: linear-gradient(to bottom, #6f262f, #4a1a20);
     color: #ffffff;
     text-align: center;
-    padding: 6em 1em 4em; /* Уменьшил padding для баланса с фото */
+    padding: 6em 1em 4em;
 }
 
 .hero-content {
@@ -31,29 +30,22 @@ body {
 .avatar {
     width: 150px;
     height: 150px;
-    border-radius: 50%; /* Круглое фото */
-    object-fit: cover; /* Сохраняет пропорции, обрезает по краям */
-    border: 4px solid #ffffff; /* Белая рамка */
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3); /* Тень */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ffffff;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .avatar:hover {
-    transform: scale(1.1); /* Плавное увеличение на hover */
+    transform: scale(1.1);
     box-shadow: 0 12px 35px rgba(0,0,0,0.4);
 }
 
-h1 {
-    font-size: 3em;
-    margin: 0.5em 0 0.2em 0; /* Уменьшил отступы */
-}
+h1 { font-size: 3em; margin: 0.5em 0 0.2em 0; }
+h2 { color: #6f262f; text-align: center; }
 
-h2 {
-    color: #6f262f;
-    text-align: center;
-}
-
-/* Остальные стили без изменений */
+/* Навигация */
 nav {
     background-color: #ffffff;
     position: sticky;
@@ -72,14 +64,12 @@ nav ul {
 }
 
 nav li { margin: 0.5em 1em; }
-
 nav a {
     text-decoration: none;
     color: #000000;
     font-weight: 600;
     transition: color 0.3s;
 }
-
 nav a:hover { color: #6f262f; }
 
 .section {
@@ -97,18 +87,38 @@ nav a:hover { color: #6f262f; }
     gap: 2em;
 }
 
-.card {
+/* ИСПРАВЛЕННЫЕ КАРТОЧКИ ОПЫТА */
+.experience-card {
     background-color: #def4ff;
-    padding: 1.5em;
     border-radius: 8px;
-    position: relative;
     overflow: hidden;
     transition: box-shadow 0.3s;
+    position: relative;
 }
 
-.card:hover { box-shadow: 0 6px 25px rgba(0,0,0,0.15); }
+.experience-card:hover {
+    box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+}
 
-.card-front { z-index: 2; position: relative; }
+.card-content {
+    position: relative;
+    height: 200px; /* Фиксированная высота */
+}
+
+.card-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #def4ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    transition: opacity 0.5s ease;
+    z-index: 2;
+}
 
 .card-back {
     position: absolute;
@@ -116,18 +126,34 @@ nav a:hover { color: #6f262f; }
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(111, 38, 47, 0.9);
+    background-color: #6f262f;
     color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 1em;
     opacity: 0;
     transition: opacity 0.5s ease;
-    padding: 1em;
-    box-sizing: border-box;
+    z-index: 1;
 }
 
-.card:hover .card-back { opacity: 1; }
+.experience-card:hover .card-front {
+    opacity: 0; /* СКРЫВАЕМ фронт полностью */
+}
+
+.experience-card:hover .card-back {
+    opacity: 1;
+}
+
+/* Обычные карточки проектов */
+.card {
+    background-color: #def4ff;
+    padding: 1.5em;
+    border-radius: 8px;
+    transition: box-shadow 0.3s;
+}
+
+.card:hover { box-shadow: 0 6px 25px rgba(0,0,0,0.15); }
 
 .skills-grid {
     display: flex;
@@ -180,13 +206,11 @@ footer {
     margin-top: 4em;
 }
 
-/* Responsive для фото */
 @media (max-width: 768px) {
-    .avatar {
-        width: 120px;
-        height: 120px;
-    }
+    .avatar { width: 120px; height: 120px; }
     .hero { padding: 4em 1em; }
     h1 { font-size: 2.5em; }
     .section { padding: 1em; margin: 2em 1em; }
+    .experience-card { height: auto; }
+    .card-content { height: auto; min-height: 150px; }
 }
