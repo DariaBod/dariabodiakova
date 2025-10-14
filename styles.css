@@ -8,27 +8,52 @@ body {
     scroll-behavior: smooth;
 }
 
+/* Hero с навигацией вверху */
 .hero {
     background: linear-gradient(to bottom, #6f262f, #4a1a20);
     color: #ffffff;
-    text-align: center;
-    padding: 4em 1em;
+    padding: 0;
 }
 
 .hero-content {
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.hero-nav {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1em 0;
+}
+
+.hero-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+}
+
+.hero-nav li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.hero-nav li a:hover {
+    color: #def4ff;
+}
+
+.hero-main {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 3em; /* Расстояние между фото и текстом */
-    padding: 0 2em;
+    gap: 3em;
+    padding: 4em 2em;
 }
 
-.hero-avatar {
-    flex-shrink: 0;
-}
-
+.hero-avatar { flex-shrink: 0; }
 .avatar {
     width: 200px;
     height: 200px;
@@ -36,65 +61,28 @@ body {
     object-fit: cover;
     border: 4px solid #ffffff;
     box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
-.avatar:hover {
-    transform: scale(1.1);
-    box-shadow: 0 12px 35px rgba(0,0,0,0.4);
-}
+.avatar:hover { transform: scale(1.05); }
 
 .hero-text {
-    text-align: left; /* Текст слева */
+    text-align: left;
+    max-width: 500px;
 }
 
-.hero-buttons {
-    display: flex;
-    gap: 1em;
-}
-
-h1 {
+.hero-text h1 {
     font-size: 3em;
-    margin: 0 0 0.2em 0;
+    margin: 0 0 0.5em 0;
 }
 
 h2 {
     color: #6f262f;
     text-align: center;
+    margin-bottom: 2em;
 }
 
-nav {
-    background-color: #ffffff;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-nav ul {
-    list-style: none;
-    padding: 1em;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-nav li {
-    margin: 0.5em 1em;
-}
-
-nav a {
-    text-decoration: none;
-    color: #000000;
-    font-weight: 600;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #6f262f;
-}
-
+/* СЕКЦИИ С HOVER ЭФФЕКТАМИ */
 .section {
     max-width: 1200px;
     margin: 4em auto;
@@ -102,6 +90,14 @@ nav a:hover {
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    border-image: linear-gradient(to right, #def4ff, #6f262f) 1;
 }
 
 .card-grid {
@@ -117,16 +113,14 @@ nav a:hover {
     transition: box-shadow 0.3s;
 }
 
-.card:hover {
-    box-shadow: 0 6px 25px rgba(0,0,0,0.15);
-}
+.card:hover { box-shadow: 0 6px 25px rgba(0,0,0,0.15); }
 
-/* Карточки опыта */
+/* ИСПРАВЛЕННЫЕ КАРТОЧКИ ОПЫТА */
 .experience-card {
-    background-color: #def4ff;
     border-radius: 8px;
     overflow: hidden;
     transition: box-shadow 0.3s;
+    height: 220px; /* Фиксированная высота */
     position: relative;
 }
 
@@ -136,47 +130,45 @@ nav a:hover {
 
 .card-content {
     position: relative;
-    height: 200px;
+    width: 100%;
+    height: 100%;
 }
 
-.card-front {
+.card-front, .card-back {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #def4ff;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 1em;
     transition: opacity 0.5s ease;
+    box-sizing: border-box;
+}
+
+.card-front {
+    background-color: #def4ff;
+    color: #000000;
     z-index: 2;
 }
 
 .card-back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #6f262f; /* Полностью непрозрачный */
+    background-color: #6f262f;
     color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1em;
-    opacity: 0;
-    transition: opacity 0.5s ease;
     z-index: 1;
+    opacity: 0;
 }
 
 .experience-card:hover .card-front {
     opacity: 0;
+    z-index: 1;
 }
 
 .experience-card:hover .card-back {
     opacity: 1;
+    z-index: 2;
 }
 
 .skills-grid {
@@ -195,9 +187,7 @@ nav a:hover {
     transition: transform 0.3s;
 }
 
-.skill-chip:hover {
-    transform: scale(1.1);
-}
+.skill-chip:hover { transform: scale(1.1); }
 
 .btn {
     display: inline-block;
@@ -207,7 +197,6 @@ nav a:hover {
     text-decoration: none;
     border-radius: 30px;
     font-weight: 600;
-    margin: 0.5em 0;
     transition: background-color 0.3s, transform 0.3s;
 }
 
@@ -224,22 +213,30 @@ pre code {
     overflow-x: auto;
 }
 
-/* Контакты как на примере */
+/* Контакты */
 .contact-icons {
     display: flex;
     justify-content: center;
     gap: 2em;
-    margin-top: 1em;
+    margin-top: 2em;
 }
 
 .contact-link {
     color: #6f262f;
     font-size: 2em;
     transition: color 0.3s, transform 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #def4ff;
 }
 
 .contact-link:hover {
-    color: #000000;
+    color: #ffffff;
+    background-color: #6f262f;
     transform: scale(1.1);
 }
 
@@ -253,22 +250,15 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .hero-content {
+    .hero-main {
         flex-direction: column;
-        gap: 1em;
-    }
-    .hero-text {
         text-align: center;
     }
-    .hero-buttons {
-        flex-direction: column;
-    }
-    .avatar {
-        width: 150px;
-        height: 150px;
-    }
-    .contact-icons {
+    .hero-nav ul {
         flex-wrap: wrap;
         gap: 1em;
     }
+    .avatar { width: 150px; height: 150px; }
+    .contact-icons { flex-wrap: wrap; gap: 1em; }
+    .contact-link { width: 50px; height: 50px; font-size: 1.5em; }
 }
