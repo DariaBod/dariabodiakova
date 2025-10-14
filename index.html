@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 <header class="hero">
@@ -14,10 +15,14 @@
         <div class="hero-avatar">
             <img src="sources/photo.jpg" alt="Ваше фото" class="avatar">
         </div>
-        <h1>Ваше Имя</h1>
-        <p>Автоматизатор Тестирования | Специалист QA Automation</p>
-        <a href="#about" class="btn">Узнать больше</a>
-        <a href="resume.pdf" download class="btn">Скачать резюме</a>
+        <div class="hero-text">
+            <h1>Ваше Имя</h1>
+            <p>Автоматизатор Тестирования | Специалист QA Automation</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn">Узнать больше</a>
+                <a href="Daria_Bodiakova_CV.pdf" download class="btn">Скачать резюме</a>
+            </div>
+        </div>
     </div>
 </header>
 
@@ -40,7 +45,7 @@
 <section id="experience" class="section">
     <h2>Опыт работы</h2>
     <div class="card-grid">
-        <div class="card experience-card" data-title="Компания X (2022 - настоящее время)">
+        <div class="card experience-card">
             <div class="card-content">
                 <div class="card-front">
                     <h3>Компания X (2022 - настоящее время)</h3>
@@ -50,7 +55,7 @@
                 </div>
             </div>
         </div>
-        <div class="card experience-card" data-title="Компания Y (2020 - 2022)">
+        <div class="card experience-card">
             <div class="card-content">
                 <div class="card-front">
                     <h3>Компания Y (2020 - 2022)</h3>
@@ -60,10 +65,10 @@
                 </div>
             </div>
         </div>
+        <!-- Добавьте больше -->
     </div>
 </section>
 
-<!-- Остальные секции без изменений -->
 <section id="skills" class="section">
     <h2>Навыки</h2>
     <div class="skills-grid">
@@ -84,28 +89,70 @@
     <div class="card-grid">
         <div class="card">
             <h3>Автоматизация UI для E-commerce</h3>
-            <p>Фреймворк на Selenium для тестирования Opencart</p>
-            <pre><code class="language-javascript">driver.get("https://example.com");
-driver.findElement(By.id("login")).sendKeys("user");</code></pre>
+            <p>Фреймворк на Selenium для тестирования Opencart: логин, корзина, checkout. Демонстрирует обработку элементов, waits и отчеты.</p>
+            <pre><code class="language-javascript">// Example Selenium test
+driver.get("https://example.com");
+driver.findElement(By.id("login")).sendKeys("user");
+assertTrue(driver.getTitle().contains("Dashboard"));</code></pre>
             <a href="https://github.com/yourusername/project1" target="_blank" class="btn">GitHub</a>
         </div>
-        <!-- Добавьте другие проекты -->
+        <div class="card">
+            <h3>API Тестирование</h3>
+            <p>Скрипты в Postman для Restful Booker: CRUD операции, assertions. Интеграция с Newman для CI.</p>
+            <pre><code class="language-javascript">// Example Postman script
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});</code></pre>
+            <a href="https://github.com/yourusername/project2" target="_blank" class="btn">GitHub</a>
+        </div>
+        <div class="card">
+            <h3>E2E Тесты в Cypress</h3>
+            <p>Автоматизация веб-приложения: fixtures, custom commands, видео-запись тестов.</p>
+            <pre><code class="language-javascript">// Example Cypress test
+cy.visit('/login');
+cy.get('#username').type('user');
+cy.get('#password').type('pass');
+cy.get('button').click();</code></pre>
+            <a href="https://github.com/yourusername/project3" target="_blank" class="btn">GitHub</a>
+        </div>
     </div>
 </section>
 
 <section id="education" class="section">
     <h2>Образование и Сертификаты</h2>
-    <ul>
-        <li>Высшее образование: [Ваш вуз, специальность, год]</li>
-        <li>ISTQB Certified Tester Foundation Level</li>
-    </ul>
+    <div class="card-grid">
+        <div class="card">
+            <h3>Высшее образование</h3>
+            <p>[Ваш вуз, специальность, год]</p>
+        </div>
+        <div class="card">
+            <h3>ISTQB Certified Tester Foundation Level</h3>
+            <p>[Описание или год получения]</p>
+        </div>
+        <div class="card">
+            <h3>Selenium WebDriver Certification</h3>
+            <p>[Описание или год получения]</p>
+        </div>
+        <!-- Добавьте больше -->
+    </div>
 </section>
 
 <section id="contacts" class="section">
     <h2>Контакты</h2>
-    <p>Email: your.email@example.com</p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile">yourprofile</a></p>
-    <p>GitHub: <a href="https://github.com/yourusername">yourusername</a></p>
+    <div class="contact-icons">
+        <a href="mailto:your.email@example.com" class="contact-link" title="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://linkedin.com/in/yourprofile" class="contact-link" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/yourusername" class="contact-link" title="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://t.me/yourhandle" class="contact-link" title="Telegram">
+            <i class="fab fa-telegram"></i>
+        </a>
+    </div>
 </section>
 
 <footer>
