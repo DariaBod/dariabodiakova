@@ -5,13 +5,28 @@ body {
     background: linear-gradient(to bottom, #def4ff, #ffffff);
     color: #000000;
     line-height: 1.6;
+    scroll-behavior: smooth;
 }
 
+/* Минималистичная шапка */
 .hero {
-    background: linear-gradient(to bottom, #6f262f, #4a1a20);
+    background: linear-gradient(135deg, #6f262f 0%, #4a1a20 100%);
     color: #ffffff;
     text-align: center;
     padding: 6em 1em 4em;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    pointer-events: none;
 }
 
 .hero-content {
@@ -21,6 +36,8 @@ body {
     align-items: center;
     flex-direction: column;
     gap: 2em;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-avatar {
@@ -38,7 +55,7 @@ body {
 }
 
 .avatar:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: 0 12px 35px rgba(0,0,0,0.4);
 }
 
@@ -46,23 +63,70 @@ body {
     text-align: center;
 }
 
-h1 {
+.hero-text h1 {
     font-size: 3em;
-    margin: 0;
+    margin: 0 0 0.5em 0;
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
-h2 {
-    color: #6f262f;
-    text-align: center;
+.hero-text p {
+    font-size: 1.2em;
+    margin: 0 0 1.5em 0;
+    opacity: 0.9;
 }
 
+/* СЕКЦИИ С HOVER ЭФФЕКТАМИ */
 .section {
     max-width: 1200px;
     margin: 4em auto;
-    padding: 2em;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    padding: 3em 2em;
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid rgba(111, 38, 47, 0.1);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(111, 38, 47, 0.05), transparent);
+    transition: left 0.6s;
+}
+
+.section:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(111, 38, 47, 0.15);
+    border-color: #6f262f;
+}
+
+.section:hover::before {
+    left: 100%;
+}
+
+.section h2 {
+    color: #6f262f;
+    text-align: center;
+    margin-bottom: 2em;
+    font-weight: 600;
+    position: relative;
+}
+
+.section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #6f262f, #def4ff);
+    margin: 1em auto 0;
+    border-radius: 2px;
 }
 
 .card-grid {
@@ -73,54 +137,82 @@ h2 {
 
 .card {
     background-color: #def4ff;
-    padding: 1.5em;
-    border-radius: 8px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 2em;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(111, 38, 47, 0.1);
 }
 
 .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
 
-/* Карточки опыта */
+/* ИСПРАВЛЕННЫЕ КАРТОЧКИ ОПЫТА */
 .experience-card {
     position: relative;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
-    transition: box-shadow 0.3s;
+    height: 180px;
+    transition: box-shadow 0.3s ease;
 }
 
-.experience-card .card-front {
-    padding: 2em;
-    text-align: center;
-    background-color: #def4ff;
-    transition: opacity 0.5s ease;
+.experience-card:hover {
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
+.experience-card .card-front,
 .experience-card .card-back {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: opacity 0.5s ease;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.experience-card .card-front {
+    background-color: #def4ff;
+    color: #000000;
+    z-index: 2;
+}
+
+.experience-card .card-front h3 {
+    margin: 0;
+    font-size: 1.3em;
+}
+
+.experience-card .card-back {
     background-color: #6f262f;
     color: #ffffff;
-    padding: 2em;
-    text-align: center;
+    z-index: 1;
     opacity: 0;
-    transition: opacity 0.5s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
+
+.experience-card .card-back p {
+    margin: 0;
+    font-size: 0.95em;
+    line-height: 1.5;
+    word-wrap: break-word;
+    padding: 0 0.5em;
 }
 
 .experience-card:hover .card-front {
     opacity: 0;
+    z-index: 1;
 }
 
 .experience-card:hover .card-back {
     opacity: 1;
+    z-index: 2;
 }
 
 .skills-grid {
@@ -131,73 +223,93 @@ h2 {
 }
 
 .skill-chip {
-    background-color: #6f262f;
+    background: linear-gradient(135deg, #6f262f, #4a1a20);
     color: #ffffff;
-    padding: 0.5em 1em;
-    border-radius: 20px;
+    padding: 0.7em 1.2em;
+    border-radius: 25px;
     font-weight: 600;
-    transition: transform 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(111, 38, 47, 0.3);
 }
 
 .skill-chip:hover {
-    transform: scale(1.1);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(111, 38, 47, 0.4);
 }
 
 .btn {
     display: inline-block;
-    background-color: #6f262f;
+    background: linear-gradient(135deg, #6f262f, #4a1a20);
     color: #ffffff;
-    padding: 0.8em 1.5em;
+    padding: 1em 2em;
     text-decoration: none;
     border-radius: 30px;
     font-weight: 600;
-    margin: 1em 0.5em;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(111, 38, 47, 0.3);
 }
 
 .btn:hover {
-    background-color: #000000;
+    background: linear-gradient(135deg, #000000, #333333);
     transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    color: #ffffff;
+    text-decoration: none;
 }
 
 pre code {
     background: #2d2d2d;
     color: #f8f8f2;
-    padding: 1em;
+    padding: 1.5em;
     border-radius: 8px;
     overflow-x: auto;
+    font-size: 0.9em;
 }
 
 .contact-icons {
     display: flex;
     justify-content: center;
     gap: 2em;
-    margin-top: 1em;
+    margin-top: 2em;
 }
 
 .contact-link {
     color: #6f262f;
     font-size: 2em;
-    transition: color 0.3s, transform 0.3s;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #def4ff, #ffffff);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(111, 38, 47, 0.1);
 }
 
 .contact-link:hover {
-    color: #000000;
-    transform: scale(1.1);
+    color: #ffffff;
+    background: linear-gradient(135deg, #6f262f, #4a1a20);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(111, 38, 47, 0.3);
 }
 
 footer {
-    background-color: #6f262f;
+    background: linear-gradient(135deg, #6f262f, #4a1a20);
     color: #ffffff;
     text-align: center;
-    padding: 1em;
+    padding: 2em;
     margin-top: 4em;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .hero { padding: 4em 1em; }
-    h1 { font-size: 2.5em; }
-    .section { padding: 1em; margin: 2em 1em; }
+    .hero-text h1 { font-size: 2.5em; }
     .avatar { width: 150px; height: 150px; }
+    .section { padding: 2em 1em; margin: 2em 1em; }
+    .experience-card { height: 160px; }
+    .contact-icons { flex-wrap: wrap; gap: 1.5em; }
+    .contact-link { width: 50px; height: 50px; font-size: 1.5em; }
 }
