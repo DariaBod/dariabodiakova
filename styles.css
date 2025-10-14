@@ -20,8 +20,7 @@ body {
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    padding: 0 2em;
+    justify-content: center;
     gap: 3em;
 }
 
@@ -46,11 +45,17 @@ body {
 
 .hero-text {
     text-align: left;
+    max-width: 600px;
 }
 
-h1 {
+.hero-text h1 {
     font-size: 3em;
     margin: 0 0 0.2em 0;
+}
+
+.hero-text p {
+    font-size: 1.2em;
+    margin: 0 0 1em 0;
 }
 
 h2 {
@@ -74,9 +79,10 @@ h2 {
 }
 
 .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 2em;
+    justify-content: center;
 }
 
 .card {
@@ -84,6 +90,9 @@ h2 {
     padding: 1.5em;
     border-radius: 8px;
     transition: transform 0.3s, box-shadow 0.3s;
+    min-width: 300px;
+    max-width: 400px;
+    flex: 1;
 }
 
 .card:hover {
@@ -96,40 +105,52 @@ h2 {
     position: relative;
     border-radius: 8px;
     overflow: hidden;
+    min-width: 300px;
+    max-width: 400px;
+    height: 200px;
     transition: box-shadow 0.3s;
 }
 
-.experience-card .card-front {
-    padding: 2em;
-    text-align: center;
-    background-color: #def4ff;
-    transition: opacity 0.5s ease;
+.experience-card:hover {
+    box-shadow: 0 6px 25px rgba(0,0,0,0.15);
 }
 
-.experience-card .card-back {
+.experience-card .card-front, .experience-card .card-back {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #6f262f;
-    color: #ffffff;
-    padding: 2em;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.5s ease;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: opacity 0.5s ease;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+.experience-card .card-front {
+    background-color: #def4ff;
+    color: #000000;
+    z-index: 2;
+}
+
+.experience-card .card-back {
+    background-color: #6f262f;
+    color: #ffffff;
+    z-index: 1;
+    opacity: 0;
+    text-align: center;
+    line-height: 1.4;
+    font-size: 0.95em;
+    overflow-y: auto;
+    padding: 1.5em;
 }
 
 .experience-card .card-back p {
     margin: 0;
-    font-size: 1em;
-    line-height: 1.4;
+    word-wrap: break-word;
     hyphens: auto;
-    word-break: break-word;
-    max-width: 100%;
 }
 
 .experience-card:hover .card-front {
@@ -215,10 +236,13 @@ footer {
 @media (max-width: 768px) {
     .hero-content {
         flex-direction: column;
+        align-items: center;
         text-align: center;
     }
     .hero-text {
         text-align: center;
     }
     .section { padding: 1em; margin: 2em 1em; }
+    .card-grid { flex-direction: column; align-items: center; }
+    .experience-card { height: auto; min-height: 150px; }
 }
