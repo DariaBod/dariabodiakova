@@ -225,16 +225,8 @@ pre code {
     opacity: 0.9;
 }
 
-.contact-icons {
-    display: flex;
-    justify-content: center;
-    gap: 2em;
-    margin: 2em 0;
-    flex-wrap: wrap;
-}
-
 .contact-link {
-    color: #ffffff;
+    color: #ffffff !important; /* Белый цвет ИКОНОК */
     font-size: 1.8em;
     transition: all 0.3s ease;
     display: inline-flex;
@@ -243,25 +235,38 @@ pre code {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15); /* Чуть более заметный фон */
     backdrop-filter: blur(10px);
-    border: none; /* ЯВНО убираем границу */
-    outline: none; /* Убираем outline */
-    box-shadow: none; /* Убираем тень */
-    text-decoration: none;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    text-decoration: none !important; /* Убираем подчеркивание */
     position: relative;
+    line-height: 1; /* Убираем влияние line-height */
+    padding: 0; /* Убираем padding */
+    margin: 0; /* Убираем margin */
+}
+
+.contact-link i {
+    color: #ffffff !important; /* Белый цвет конкретно иконок */
+    transition: color 0.3s ease;
 }
 
 .contact-link:hover {
-    color: #6f262f;
     background: #ffffff;
     transform: scale(1.1);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Тень только на hover */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-.contact-link:focus {
-    outline: none;
-    box-shadow: none;
+.contact-link:hover i {
+    color: #6f262f !important; /* Вишневый цвет иконок на hover */
+}
+
+.contact-link:focus,
+.contact-link:active {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
 }
 
 .copyright {
