@@ -3,137 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Portfolio - QA Automation Engineer</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Daria Bodiakova - QA Automation Engineer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
+
+<canvas id="bg-canvas"></canvas>
+
 <header class="hero">
-    <div class="hero-content">
-        <div class="hero-text">
-            <h1>Your Name</h1>
-            <p class="hero-subtitle">QA Automation Engineer</p>
-            <p class="hero-description">Building robust UI/API testing frameworks. Specialized in Cypress, Selenium, Playwright.</p>
-            <a href="resume.pdf" download class="btn-primary">Download Resume</a>
-        </div>
-    </div>
+    <h1>Daria Bodiakova</h1>
+    <p class="hero-subtitle">QA Automation Engineer</p>
+    <p class="hero-description">Crafting robust UI/API testing frameworks. Passionate about quality and automation excellence.</p>
+    <a href="resume.pdf" download class="btn-primary">Download Resume</a>
+    <button id="scroll-down" title="Scroll down"><i class="fas fa-chevron-down"></i></button>
 </header>
 
 <main class="content">
-    <section id="about" class="content-section">
+    <section class="content-section" id="about">
         <h2>About Me</h2>
-        <p>QA Automation Engineer with experience in building UI/API testing frameworks. Specialized in Cypress, Selenium, and Playwright. Focused on optimizing testing processes and ensuring software quality throughout the development lifecycle.</p>
+        <p>QA Automation Engineer with experience in Cypress, Selenium, Playwright, and CI/CD pipelines. Focused on ensuring software quality and automation efficiency.</p>
     </section>
 
-    <section id="experience" class="content-section">
+    <section class="content-section" id="experience">
         <h2>Experience</h2>
-        <div class="experience-list">
-            <div class="experience-item">
-                <h3>Company X <span class="experience-date">(2022 - Present)</span></h3>
-                <p>QA Automation Engineer: Developed end-to-end tests in Cypress, CI/CD integration, mentored testing team.</p>
-            </div>
-            <div class="experience-item">
-                <h3>Company Y <span class="experience-date">(2020 - 2022)</span></h3>
-                <p>Junior QA Engineer: Manual and automated testing, API testing in Postman, test case documentation.</p>
-            </div>
+        <div class="experience-item">
+            <h3>QA Automation Specialist - Altenar</h3>
+            <p>Optimized test coverage from 70% to 90%, reduced test execution time from 40 to 25 minutes, led team mentoring initiatives.</p>
+        </div>
+        <div class="experience-item">
+            <h3>Middle QA Engineer - Digital Document Workflow</h3>
+            <p>Built parallel TestNG framework, increased coverage from 30% to 60%, reduced regression time by 40% using Jenkins pipelines.</p>
         </div>
     </section>
 
-    <section id="skills" class="content-section">
+    <section class="content-section" id="skills">
         <h2>Skills</h2>
         <div class="skills-list">
-            <span class="skill-tag">Cypress</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Kotlin</span>
             <span class="skill-tag">Selenium</span>
-            <span class="skill-tag">Playwright</span>
+            <span class="skill-tag">Cypress</span>
             <span class="skill-tag">Postman</span>
             <span class="skill-tag">Git</span>
-            <span class="skill-tag">SQL</span>
-            <span class="skill-tag">JavaScript/TypeScript</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Jenkins/CI-CD</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Jenkins</span>
         </div>
     </section>
 
-    <section id="projects" class="content-section">
+    <section class="content-section" id="projects">
         <h2>Projects</h2>
-        <div class="projects-list">
-            <div class="project-item">
-                <h3>E-commerce UI Automation</h3>
-                <p>Selenium framework for Opencart testing: login, cart, checkout. Element handling, waits, and reporting.</p>
-                <pre><code class="language-javascript">// Example Selenium test
-driver.get("https://example.com");
-driver.findElement(By.id("login")).sendKeys("user");
-assertTrue(driver.getTitle().contains("Dashboard"));</code></pre>
-                <a href="https://github.com/yourusername/project1" target="_blank" class="btn-secondary">GitHub</a>
-            </div>
-            <div class="project-item">
-                <h3>API Testing Framework</h3>
-                <p>Postman scripts for Restful Booker: CRUD operations, assertions. Newman integration for CI.</p>
-                <pre><code class="language-javascript">// Example Postman script
-pm.test("Status code is 200", function () {
-    pm.response.to.have.status(200);
-});</code></pre>
-                <a href="https://github.com/yourusername/project2" target="_blank" class="btn-secondary">GitHub</a>
-            </div>
-            <div class="project-item">
-                <h3>Cypress E2E Testing</h3>
-                <p>Web app automation: fixtures, custom commands, video recording of tests.</p>
-                <pre><code class="language-javascript">// Example Cypress test
-cy.visit('/login');
-cy.get('#username').type('user');
-cy.get('#password').type('pass');
-cy.get('button').click();</code></pre>
-                <a href="https://github.com/yourusername/project3" target="_blank" class="btn-secondary">GitHub</a>
-            </div>
+        <div class="project-item">
+            <h3>Mock Server for Microservices</h3>
+            <p>gRPC-based mock server for isolated testing, increased testing speed by 30%.</p>
+            <a href="https://github.com/yourusername/mock-server" class="btn-secondary" target="_blank">View on GitHub</a>
+        </div>
+        <div class="project-item">
+            <h3>Load Testing with JMeter DSL</h3>
+            <p>Detected bottlenecks, optimized backend performance by 70% with automated load tests.</p>
+            <a href="https://github.com/yourusername/jmeter-loadtests" class="btn-secondary" target="_blank">View on GitHub</a>
         </div>
     </section>
 
-    <section id="education" class="content-section">
+    <section class="content-section" id="education">
         <h2>Education & Certifications</h2>
-        <div class="education-list">
-            <div class="education-item">
-                <h3>Bachelor's Degree</h3>
-                <p>[Your University, Major, Graduation Year]</p>
-            </div>
-            <div class="education-item">
-                <h3>ISTQB Certified Tester Foundation Level</h3>
-                <p>[Certification Year]</p>
-            </div>
-            <div class="education-item">
-                <h3>Selenium WebDriver Certification</h3>
-                <p>[Certification Year]</p>
-            </div>
+        <div class="education-item">
+            <h3>Bachelor's in Computer Science</h3>
+            <p>Ufa University, 2021</p>
+        </div>
+        <div class="education-item">
+            <h3>ISTQB Certified Tester</h3>
+            <p>2023</p>
         </div>
     </section>
 </main>
 
 <footer class="footer">
-    <div class="footer-content">
-        <p class="footer-text">Interested in collaborating? Reach out via email or LinkedIn.</p>
-        <div class="contact-icons">
-            <a href="tel:+1234567890" class="contact-link" title="Phone">
-                <i class="fas fa-phone"></i>
-            </a>
-            <a href="mailto:your.email@example.com" class="contact-link" title="Email">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <a href="https://linkedin.com/in/yourprofile" class="contact-link" title="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/yourusername" class="contact-link" title="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://t.me/yourhandle" class="contact-link" title="Telegram">
-                <i class="fab fa-telegram"></i>
-            </a>
-        </div>
-        <p class="copyright">&copy; 2025 Your Name. All rights reserved.</p>
+    <p>Let's connect:</p>
+    <div class="contact-icons">
+        <a href="mailto:daria@example.com" class="contact-link"><i class="fas fa-envelope"></i></a>
+        <a href="https://linkedin.com/in/dariabodiakova" class="contact-link"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/dariabodiakova" class="contact-link"><i class="fab fa-github"></i></a>
+        <a href="https://t.me/dariabodiakova" class="contact-link"><i class="fab fa-telegram"></i></a>
     </div>
+    <p>© 2025 Daria Bodiakova</p>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<!-- Mail button -->
+<button id="scroll-contact" title="Go to contacts">
+    <i class="fas fa-envelope"></i>
+</button>
+
 <script src="script.js"></script>
 </body>
 </html>
